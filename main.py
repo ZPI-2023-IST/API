@@ -17,6 +17,7 @@ async def make_move(sid, data):
     ml_src = move_data.get("ml_src")
     ml_dst = move_data.get("ml_dst")
 
+    print(data)
     print(f"sender: {sid} tells translator to make move:")
     print(f"ml_no_cards: {ml_no_cards}, ml_src: {ml_src}, ml_dst: {ml_dst}")
 
@@ -24,18 +25,17 @@ async def make_move(sid, data):
 
     state = translator.get_state()
     reward = translator.get_reward()
-    # moves = translator.get_moves()
-    # board = translator.get_board()
+    moves = translator.get_moves()
+    board = translator.get_board()
 
     response_data = {
-        "moves_vector": "moves",  # To be replaced with actual moves vector data
-        "game_board": "board",  # To be replaced with actual game state vector data
+        "moves_vector": moves,  # To be replaced with actual moves vector data
+        "game_board": board,  # To be replaced with actual game state vector data
         "reward": reward,
         "state": state.__str__(),
     }
 
     await sio.emit("get_response", json.dumps(response_data), room=sid)
-
 
 
 if __name__ == '__main__':

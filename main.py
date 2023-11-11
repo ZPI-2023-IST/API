@@ -13,16 +13,13 @@ sio.attach(app)
 @sio.event
 async def make_move(sid, data):
     move_data = data.get("move", {})
-    ml_no_cards = move_data.get("ml_no_cards")
-    ml_src = move_data.get("ml_src")
-    ml_dst = move_data.get("ml_dst")
+    move_ml = move_data.get("move")
 
     print(data)
     print(f"sender: {sid} tells translator to make move:")
-    print(f"ml_no_cards: {ml_no_cards}, ml_src: {ml_src}, ml_dst: {ml_dst}")
+    print(f"move_ml: {move_ml}")
 
-    # translator.make_move(ml_no_cards, ml_src, ml_dst)
-
+    translator.make_move(move_ml)
     state = translator.get_state()
     reward = translator.get_reward()
     moves = translator.get_moves()

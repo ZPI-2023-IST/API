@@ -24,5 +24,5 @@
 2. Open the project in your IDE
 3. Make venv
 4. Install requirements
-5. pip3 install git+git+https://github.com/ZPI-2023-IST/FreeCell.git
-6. pip3 install git+git+https://github.com/ZPI-2023-IST/Translator.git@Z2-68_make_tr_a_package
+5. pip3 install git+https://github.com/ZPI-2023-IST/FreeCell.git
+6. pip3 install git+https://github.com/ZPI-2023-IST/Translator.git@Z2-68_make_tr_a_package

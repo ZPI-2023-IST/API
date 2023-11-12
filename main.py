@@ -12,8 +12,8 @@ sio.attach(app)
 
 @sio.event
 async def make_move(sid, data):
-    move_data = data.get("move", {})
-    move_ml = move_data.get("move")
+    print("Request made")
+    move_ml = data.get("move")
 
     print(data)
     print(f"sender: {sid} tells translator to make move:")

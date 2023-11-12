@@ -12,7 +12,6 @@ sio.attach(app)
 
 @sio.event
 async def make_move(sid, data):
-    print("Request made")
     move_ml = data.get("move")
 
     print(data)
@@ -26,8 +25,8 @@ async def make_move(sid, data):
     board = translator.get_board()
 
     response_data = {
-        "moves_vector": moves,  # To be replaced with actual moves vector data
-        "game_board": board,  # To be replaced with actual game state vector data
+        "moves_vector": moves,
+        "game_board": board,
         "reward": reward,
         "state": state.__str__(),
     }

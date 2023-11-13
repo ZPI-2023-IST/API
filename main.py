@@ -41,4 +41,4 @@ async def make_move(sid, data):
 if __name__ == '__main__':
     game = FreeCell()
     translator = FreecellTranslator(game)
-    web.run_app(app, host="localhost", port=5002)
+    web.run_app(app, host="127.0.0.1", port=5002)

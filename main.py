@@ -27,6 +27,7 @@ async def make_move(sid, data):
     print(data)
     print(f"sender: {sid} tells translator to make move:")
     print(f"move_ml: {move_ml}")
+    print(f"step: {i}")
     
     if move_ml is None:
         print("Resetting game")
@@ -39,6 +40,8 @@ async def make_move(sid, data):
     reward = translator.get_reward()
     moves = translator.get_moves()
     board = translator.get_board()
+    
+    print(f"moves: {moves}")
 
     response_data = {
         "moves_vector": moves,

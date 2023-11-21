@@ -10,6 +10,20 @@ app = web.Application()
 runner = Runner()
 sio.attach(app)
 
+
+def parse_board(board):
+    new_board = [], [], []
+    for stack in board[0]:
+        new_board[0].append([])
+        for card in stack:
+            new_board[0][-1].append(card.__str__())
+    for card in board[1]:
+        new_board[1].append(card.__str__())
+    for card in board[2]:
+        new_board[2].append(card.__str__())
+    return new_board
+
+
 @sio.event
 async def make_move(sid, data):
     data = json.loads(data)
@@ -28,17 +42,20 @@ async def make_move(sid, data):
     reward = runner.translator.get_reward()
     moves = runner.translator.get_moves()
     board = runner.translator.get_board()
-    
+    board_raw = runner.game.get_board()
+        
     print(f"moves: {moves}")
 
     response_data = {
         "moves_vector": moves,
         "game_board": board,
         "reward": reward,
-        "state": state.__str__()
+        "state": state.name,
+        "board_raw": parse_board(board_raw)
     }
 
     await sio.emit("get_response", json.dumps(response_data), room=sid)
+
 
 
 if __name__ == '__main__':

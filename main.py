@@ -16,11 +16,11 @@ def parse_board(board):
     for stack in board[0]:
         new_board[0].append([])
         for card in stack:
-            new_board[0][-1].append(card.__str__())
+            new_board[0][-1].append(card.__repr__())
     for card in board[1]:
-        new_board[1].append(card.__str__())
+        new_board[1].append(card.__repr__())
     for card in board[2]:
-        new_board[2].append(card.__str__())
+        new_board[2].append(card.__repr__())
     return new_board
 
 

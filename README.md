@@ -3,12 +3,7 @@
 ### Example call to make_move action
 
     {
-        "move":
-            {
-                "ml_no_cards": "TBD",
-                "ml_src": "TBD",
-                "ml_dst": "TBD"
-            }
+        "move": 1
     }
 
 ### The program has a get_response event that is triggered by calling the make_move action and returns to each listener a JSON with the following structure:

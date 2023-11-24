@@ -12,15 +12,15 @@ sio.attach(app)
 
 
 def parse_board(board):
-    new_board = [], [], []
+    new_board =   {"Board": [], "FreeCells": [], "Stack": []}
     for stack in board[0]:
-        new_board[0].append([])
+        new_board["Board"].append([])
         for card in stack:
-            new_board[0][-1].append(card.__repr__())
+            new_board["Board"][-1].append(card.__repr__())
     for card in board[1]:
-        new_board[1].append(card.__repr__())
+        new_board["FreeCells"].append(card.__repr__())
     for card in board[2]:
-        new_board[2].append(card.__repr__())
+        new_board["Stack"].append(card.__repr__())
     return new_board
 
 

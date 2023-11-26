@@ -16,11 +16,14 @@ def parse_board(board):
     for stack in board[0]:
         new_board["Board"].append([])
         for card in stack:
-            new_board["Board"][-1].append(card.__repr__())
+            card = card.__repr__() if card is not None else None
+            new_board["Board"][-1].append(card)
     for card in board[1]:
-        new_board["FreeCells"].append(card.__repr__())
+        card = card.__repr__() if card is not None else None
+        new_board["FreeCells"].append(card)
     for card in board[2]:
-        new_board["Stack"].append(card.__repr__())
+        card = card.__repr__() if card is not None else None
+        new_board["Stack"].append(card)
     return new_board
 
 

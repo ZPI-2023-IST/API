@@ -3,11 +3,10 @@ from translator.freecell_translator.freecell_translator import FreecellTranslato
 
 class Runner:
     def __init__(self):
-        self.game = FreeCell(seed=0)
+        self.game = FreeCell()
         self.translator = FreecellTranslator(self.game)
         
     def reset(self):
         print("Resetting game")
-        self.game = FreeCell(seed=0)
-        self.translator = FreecellTranslator(self.game)
+        self.translator.start_game()
         

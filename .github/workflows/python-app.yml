@@ -31,7 +31,7 @@ jobs:
       - name: Set up Python version
         uses: actions/setup-python@v3
         with:
-          python-version: *defaults.python-version
+          python-version: ${{ defaults.python-version }}
 
       - name: Install dependencies
         run: |

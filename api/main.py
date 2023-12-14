@@ -2,7 +2,7 @@ import json
 from aiohttp import web
 import sys
 import socketio
-from api.runner import Runner
+from runner import Runner
 
 
 class SocketIOServer:

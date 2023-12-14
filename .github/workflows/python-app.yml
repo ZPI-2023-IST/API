@@ -44,7 +44,14 @@ jobs:
         run: |
           pip install git+https://github.com/ZPI-2023-IST/FreeCell.git
 
+      - name: Run main to test
+        run: |
+          python api/main.py
+
       - name: Test with pytest
         run: |
           pytest --cov=tests --cov-report=xml
 
+      - name: Exit main after tests
+        run: |
+          exit 0

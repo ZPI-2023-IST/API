@@ -48,6 +48,3 @@ jobs:
         run: |
           pytest --cov=tests --cov-report=xml
 
-      - name: Run main
-        run: |
-          python main.py

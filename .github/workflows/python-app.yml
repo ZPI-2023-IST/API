@@ -38,11 +38,11 @@ jobs:
 
       - name: Install Translator
         run: |
-          pip3 install https://github.com/ZPI-2023-IST/Translator.git
+          pip install https://github.com/ZPI-2023-IST/Translator.git
 
       - name: Install Game
         run: |
-          pip3 install https://github.com/ZPI-2023-IST/FreeCell.git
+          pip install https://github.com/ZPI-2023-IST/FreeCell.git
 
       - name: Test with pytest
         run: |

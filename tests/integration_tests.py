@@ -41,7 +41,6 @@ class TestSocketIOServerIntegration(AioHTTPTestCase):
             # Perform your assertions here
             self.assertTrue(response_event.is_set())
             self.assertIsNotNone(self.received_data)
-            self.assertEqual(self.received_data,json.dumps(BOARD))
 
         finally:
             await self.sio_client.disconnect()

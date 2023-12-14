@@ -3,11 +3,6 @@
 
 name: API
 
-defaults: &defaults
-  python-version: "3.10"
-  game-repo: "https://github.com/ZPI-2023-IST/FreeCell.git"
-  translator-repo: "https://github.com/ZPI-2023-IST/Translator.git"
-
 on:
   push:
     branches:
@@ -30,8 +25,7 @@ jobs:
 
       - name: Set up Python version
         uses: actions/setup-python@v3
-        with:
-          python-version: ${{ defaults.python-version }}
+        python-version: "3.10"
 
       - name: Install dependencies
         run: |
@@ -45,14 +39,14 @@ jobs:
           # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
-#      - name: Install Translator
-#        run: |
-#          pip3 install ${{defaults.translator-repo}}
-#
-#      - name: Install Game
-#        run: |
-#          pip3 install ${{defaults.game-repo}}
-#
-#      - name: Test with pytest
-#        run: |
-#          pytest --cov=tests --cov-report=xml
+      - name: Install Translator
+        run: |
+          pip3 install https://github.com/ZPI-2023-IST/Translator.git
+
+      - name: Install Game
+        run: |
+          pip3 install https://github.com/ZPI-2023-IST/FreeCell.git
+
+      - name: Test with pytest
+        run: |
+          pytest --cov=tests --cov-report=xml
